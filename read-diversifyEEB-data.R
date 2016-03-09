@@ -13,11 +13,11 @@ lapply(required_packages, load_andor_install)
 
 keyString <- "1XsnX7WXgUzGEA-1zisZC29KSFrSXKzcbakIkp1nSues"
 
-dEEBkey <- gs_key(keyString)
-dEEB <- gs_read(dEEBkey)
-dEEB <- as.data.frame(dEEB)
+eebkey <- gs_key(keyString)
+eeb <- gs_read(eebkey)
+eeb <- as.data.frame(eeb)
 
-colnames(dEEB) <- c("Timestamp", 
+colnames(eeb) <- c("Timestamp", 
                     "Name", 
                     "Affiliation", 
                     "Email", 
@@ -35,10 +35,12 @@ colnames(dEEB) <- c("Timestamp",
                     "Elaborate")
 
 # Convert timestamp to POSIXct objects
-dEEB$Timestamp <- mdy_hms(dEEB$Timestamp)
+eeb$Timestamp <- mdy_hms(eeb$Timestamp)
 
 # Add an @ symbol to Twitter handles that do not start with one
-dEEB$Twitter[!is.na(dEEB$Twitter) & substr(dEEB$Twitter, 1, 1) != "@"] <- paste0("@", dEEB$Twitter[!is.na(dEEB$Twitter) & substr(dEEB$Twitter, 1, 1) != "@"])
+eeb$Twitter[!is.na(eeb$Twitter) & substr(eeb$Twitter, 1, 1) != "@"] <- paste0("@", eeb$Twitter[!is.na(eeb$Twitter) & substr(eeb$Twitter, 1, 1) != "@"])
 
 # Remove spaces from twitter handles
-dEEB[grep(" ", dEEB$Twitter), "Twitter"] <- gsub("\\s", "", dEEB[grep(" ", dEEB$Twitter), "Twitter"])
+eeb[grep(" ", eeb$Twitter), "Twitter"] <- gsub("\\s", "", eeb[grep(" ", eeb$Twitter), "Twitter"])
+
+head(eeb)
