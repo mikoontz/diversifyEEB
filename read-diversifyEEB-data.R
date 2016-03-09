@@ -1,5 +1,15 @@
-library(googlesheets)
-library(lubridate)
+load_andor_install <- function(pkg)
+{
+  if (!suppressWarnings(require(pkg, character.only = TRUE)))
+  {
+    install.packages(pkg)
+    library(pkg, character.only = TRUE)
+  }
+  paste0(pkg, " loaded.")
+}
+
+required_packages <- c("googlesheets", "lubridate")
+lapply(required_packages, load_andor_install)
 
 keyString <- "1XsnX7WXgUzGEA-1zisZC29KSFrSXKzcbakIkp1nSues"
 
