@@ -17,7 +17,22 @@ dEEBkey <- gs_key(keyString)
 dEEB <- gs_read(dEEBkey)
 dEEB <- as.data.frame(dEEB)
 
-colnames(dEEB) <- c("Timestamp", "Name", "Affiliation", "Email", "Website", "Twitter", "Current_Career_Stage", "Field", "Subfield", "Subfield_Keyword1", "Subfield_Keyword2", "Country", "Underrepresented_racial_ethnic_minority_status", "Person_with_disability", "Other_underrepresented_group", "Elaborate")
+colnames(dEEB) <- c("Timestamp", 
+                    "Name", 
+                    "Affiliation", 
+                    "Email", 
+                    "Website", 
+                    "Twitter", 
+                    "Current_Career_Stage", 
+                    "Field", 
+                    "Subfield", 
+                    "Subfield_Keyword1", 
+                    "Subfield_Keyword2", 
+                    "Country", 
+                    "Underrepresented_racial_ethnic_minority_status", 
+                    "Person_with_disability", 
+                    "Other_underrepresented_group", 
+                    "Elaborate")
 
 # Convert timestamp to POSIXct objects
 dEEB$Timestamp <- mdy_hms(dEEB$Timestamp)
