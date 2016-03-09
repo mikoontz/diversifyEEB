@@ -38,9 +38,13 @@ colnames(eeb) <- c("Timestamp",
 eeb$Timestamp <- mdy_hms(eeb$Timestamp)
 
 # Add an @ symbol to Twitter handles that do not start with one
-eeb$Twitter[!is.na(eeb$Twitter) & substr(eeb$Twitter, 1, 1) != "@"] <- paste0("@", eeb$Twitter[!is.na(eeb$Twitter) & substr(eeb$Twitter, 1, 1) != "@"])
+eeb$Twitter[!is.na(eeb$Twitter) & substr(eeb$Twitter, 1, 1) != "@"] <-
+  paste0("@", eeb$Twitter[!is.na(eeb$Twitter) & substr(eeb$Twitter, 1, 1) != "@"])
 
 # Remove spaces from twitter handles
-eeb[grep(" ", eeb$Twitter), "Twitter"] <- gsub("\\s", "", eeb[grep(" ", eeb$Twitter), "Twitter"])
+eeb[grep(" ", eeb$Twitter), "Twitter"] <- 
+  gsub("\\s", "", eeb[grep(" ", eeb$Twitter), "Twitter"])
 
 head(eeb)
+
+
