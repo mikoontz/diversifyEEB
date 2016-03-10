@@ -8,7 +8,7 @@ load_andor_install <- function(pkg)
   paste0(pkg, " loaded.")
 }
 
-required_packages <- c("googlesheets", "lubridate", "stringi")
+required_packages <- c("googlesheets", "lubridate")
 lapply(required_packages, load_andor_install)
 
 keyString <- "1XsnX7WXgUzGEA-1zisZC29KSFrSXKzcbakIkp1nSues"
@@ -46,5 +46,5 @@ eeb$Twitter <-
   gsub("\\s", "", eeb$Twitter)
 
 head(eeb)
-
+eeb[nrow(eeb), ]
 
