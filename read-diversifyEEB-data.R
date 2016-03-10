@@ -41,9 +41,9 @@ eeb$Timestamp <- mdy_hms(eeb$Timestamp)
 eeb$Twitter[!is.na(eeb$Twitter) & substr(eeb$Twitter, 1, 1) != "@"] <-
   paste0("@", eeb$Twitter[!is.na(eeb$Twitter) & substr(eeb$Twitter, 1, 1) != "@"])
 
-# Remove spaces from twitter handles
-eeb[grep(" ", eeb$Twitter), "Twitter"] <- 
-  gsub("\\s", "", eeb[grep(" ", eeb$Twitter), "Twitter"])
+# Remove spaces (usually trailing spaces) from twitter handles
+eeb$Twitter <- 
+  gsub("\\s", "", eeb$Twitter)
 
 head(eeb)
 
