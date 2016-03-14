@@ -45,6 +45,5 @@ eeb$Twitter[!is.na(eeb$Twitter) & substr(eeb$Twitter, 1, 1) != "@"] <-
 eeb$Twitter <- 
   gsub("\\s", "", eeb$Twitter)
 
-head(eeb)
-eeb[nrow(eeb), ]
-
+tweeps <- paste(eeb$Twitter[!is.na(eeb$Twitter)], collapse=", ")
+# write.table(tweeps, "tweeps.txt", row.names= FALSE, col.names= FALSE, quote= FALSE)
